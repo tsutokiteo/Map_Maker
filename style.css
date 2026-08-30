@@ -1,0 +1,40 @@
+html, body { margin: 0; padding: 0; height: 100%; background: #0c1418; font-family: "WenQuanYi Micro Hei", sans-serif; }
+#map { width: 100%; height: 100vh; }
+
+/* 让底图图片作为透明叠加层，露出深色海洋背景 */
+.leaflet-tile {
+  mix-blend-mode: lighten;
+  opacity: 0.95;
+}
+.leaflet-container {
+  background: #0c1820; /* 海洋色，底图透明处透出这里 */
+}
+
+/* 弹窗风格 */
+.leaflet-popup-content-wrapper {
+  background: #1a242c; color: #e8e0d0; border: 1px solid #6b5b3e; border-radius: 4px;
+}
+.leaflet-popup-tip { background: #1a242c; }
+.pop h3 { margin: 0 0 4px; color: #d4b878; font-size: 15px; }
+.pop .type { font-size: 11px; color: #8fa8b0; text-transform: uppercase; letter-spacing: 1px; }
+.pop p { margin: 6px 0 0; font-size: 12px; line-height: 1.5; }
+
+#layers {
+  position: fixed; top: 12px; right: 12px; z-index: 1000;
+  background: rgba(20,28,34,0.92); color: #d4d0c4;
+  padding: 10px 14px; border: 1px solid #4a5a5e; border-radius: 4px; font-size: 12px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+#layers strong { color: #d4b878; margin-bottom: 4px; }
+#layers label { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+
+.popup {
+  display: none; position: fixed; z-index: 1001;
+  background: #1a242c; color: #e8e0d0; border: 1px solid #6b5b3e; border-radius: 4px;
+  padding: 10px 14px; font-size: 12px; max-width: 240px; pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+body.hide-realms .realm, body.hide-places .place, body.hide-routes .route { display: none; }
+
+/* canvas 里文字是画上去的，用 class 隐藏需在 draw() 里判断 —— 这里改为 JS 直接读 classList，见 app.js */
+body.hide-realms #map { /* 占位，实际由 draw() 读 body class */ }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世界观地图</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div id="map"></div>
+<div id="popup" class="popup"></div>
+<!-- 图层开关面板，后续可扩展 -->
+<div id="layers">
+  <strong>图层</strong>
+  <label><input type="checkbox" data-layer="realms" checked> 国度</label>
+  <label><input type="checkbox" data-layer="places" checked> 地名</label>
+  <label><input type="checkbox" data-layer="routes" checked> 商路</label>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/proj4@2.9.2/dist/proj4.js"></script>
+<script src="https://unpkg.com/proj4leaflet@1.0.2/src/proj4leaflet.js"></script>
+<script src="./data.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
